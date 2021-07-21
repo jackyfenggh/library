@@ -1,27 +1,30 @@
+V6
+[x] It should have a list element to store each book.
+[x] It should have an unordered list element to store each book's list element.
+[x] The toggle read status buttons should update the display when clicked.
+
 V5
-[x] There should be a remove book button for each book.
+[x] It should have a remove book button for each book.
 [x] Each sample book should have a unique ID.
 [x] Each sample book's toggle button should store the book's unique ID.
 [x] The toggle read status function should take the `event` object.
 [x] Each toggle read status button should only toggle the read status of its respective book.
 
 V4
-[x] There should be a toggle read status button for each book.
+[x] It should have a toggle read status button for each book.
 [x] The add book button should run addBook on click.
 [x] The remove book button should run removeBook on click.
 [x] The toggle read status button should run toggleBookReadStatus on click.
 
 V3
-[x] It should have a function to render HTML elements.
-[x] The render function should run on page load.
-[x] There should be a button to add a book.
-[x] There should be a button to remove a book.
-[x] There should be a button to toggle the read status of a book.
+[x] It should have a button to add a book.
+[x] It should have a button to remove a book.
+[x] It should have a button to toggle the read status of a book.
 
 V2
 [x] It should initialise the myBooks array with sample books.
 [x] It should have a function to display books.
-[x] The displayBooks function should display the details of each book.
+[x] The displayBooks function should display the author, title, pages and read status of each book.
 
 V1
 [x] It should have a function to store books.

@@ -24,9 +24,11 @@ function toggleBookReadStatus(event) {
     if (event.target.id === myBooks[i].bookID) {
       if (myBooks[i].readStatus) {
         myBooks[i].readStatus = false;
+        displayBooks();
         return;
       } else {
         myBooks[i].readStatus = true;
+        displayBooks();
         return;
       }
     }
@@ -34,10 +36,16 @@ function toggleBookReadStatus(event) {
 }
 
 function displayBooks() {
+  var addBookButton = document.getElementById('add-book-button');
+  addBookButton.addEventListener('click', addBook);
+
+  var booksUl = document.getElementById('books-ul');
+  booksUl.innerText = '';
+
   for (var i = 0; i < myBooks.length; i++) {
-    var book = document.createElement('p');
+    var book = document.createElement('li');
     book.innerText = `Author: ${myBooks[i].author}, Title: ${myBooks[i].title}, Pages: ${myBooks[i].pages}, Read: ${myBooks[i].readStatus}`;
-    document.body.appendChild(book);
+    booksUl.appendChild(book);
 
     var toggleBookReadStatusButton = document.createElement('button');
     toggleBookReadStatusButton.innerText = 'Toggle Read Status';
@@ -52,13 +60,4 @@ function displayBooks() {
   };
 }
 
-function renderPage() {
-  var addBookButton = document.createElement('button');
-  addBookButton.innerText = 'Add Book';
-  document.body.appendChild(addBookButton);
-  addBookButton.addEventListener('click', addBook);
-
-  displayBooks();
-}
-
-renderPage();
+displayBooks();

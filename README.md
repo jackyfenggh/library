@@ -22,5 +22,18 @@ In order to make this second requirement work, the other requirement needs to be
 to:
 [] The toggle read status function should take the `event` object.
 
-
 So maybe incorrect requirements should simply be updated/rectified as soon as I realise as opposed to needing to look ahead?
+
+3. Another question I have is where do I draw the line with requirements? From V5, the following seem a bit too granular:
+
+[] Each sample book should have a unique ID.
+[] Each sample book's toggle button should store the book's unique ID.
+[] The toggle read status function should take the `event` object.
+
+Really, the purpose of these three requirements is to support this requirement:
+
+[] Each toggle read status button should only toggle the read status of its respective book.
+
+Where should the line be drawn? Is this what programmers mean when they say 'don't be in solution mode'? It almost seems like the latter requirement is the 'real requirement' and the prior three speak to the actual implementation of the requirement which maybe doesn't belong on the requirements doc?
+
+4. If I find that previous requirements are incorrect and I need to change code, is the requirements doc a requirements doc or a changelog? Or both? For example I just realised as I'm writing V6 that `displayBooks` and `renderPage` could be combined. Argh, definitely need to research this further. 
