@@ -1,6 +1,6 @@
 var myBooks = [
-  {author: 'test book1', title: 'test title1', pages: 'test pages1', readStatus: false}, 
-  {author: 'test book2', title: 'test title2', pages: 'test pages2', readStatus: false}
+  {author: 'test author1', title: 'test title1', pages: 'test pages1', readStatus: false, bookID: 'book1'}, 
+  {author: 'test author2', title: 'test title2', pages: 'test pages2', readStatus: false, bookID: 'book2'}
 ];
 
 function Book(author, title, pages, readStatus) {
@@ -19,11 +19,17 @@ function removeBook() {
   myBooks.pop();
 }
 
-function toggleBookReadStatus(book) {
-  if (book.readStatus) {
-    book.readStatus = false;
-  } else {
-    book.readStatus = true;
+function toggleBookReadStatus(event) {
+  for (var i = 0; i < myBooks.length; i++) {
+    if (event.target.id === myBooks[i].bookID) {
+      if (myBooks[i].readStatus) {
+        myBooks[i].readStatus = false;
+        return;
+      } else {
+        myBooks[i].readStatus = true;
+        return;
+      }
+    }
   }
 }
 
@@ -35,8 +41,14 @@ function displayBooks() {
 
     var toggleBookReadStatusButton = document.createElement('button');
     toggleBookReadStatusButton.innerText = 'Toggle Read Status';
+    toggleBookReadStatusButton.id = myBooks[i].bookID;
     book.appendChild(toggleBookReadStatusButton);
     toggleBookReadStatusButton.addEventListener('click', toggleBookReadStatus);
+
+    var removeBookButton = document.createElement('button');
+    removeBookButton.innerText = 'Remove Book';
+    book.appendChild(removeBookButton);
+    removeBookButton.addEventListener('click', removeBook);
   };
 }
 
@@ -45,11 +57,6 @@ function renderPage() {
   addBookButton.innerText = 'Add Book';
   document.body.appendChild(addBookButton);
   addBookButton.addEventListener('click', addBook);
-
-  var removeBookButton = document.createElement('button');
-  removeBookButton.innerText = 'Remove Book';
-  document.body.appendChild(removeBookButton);
-  removeBookButton.addEventListener('click', removeBook);
 
   displayBooks();
 }

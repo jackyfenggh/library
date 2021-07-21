@@ -1,3 +1,10 @@
+V5
+[x] There should be a remove book button for each book.
+[x] Each sample book should have a unique ID.
+[x] Each sample book's toggle button should store the book's unique ID.
+[x] The toggle read status function should take the `event` object.
+[x] Each toggle read status button should only toggle the read status of its respective book.
+
 V4
 [x] There should be a toggle read status button for each book.
 [x] The add book button should run addBook on click.
