@@ -1,7 +1,11 @@
-V1
+V2
+[x] It should initialise the myBooks array with sample books.
+[x] It should have a function to display books.
+[x] The displayBooks function should display the details of each book.
 
-[x] It should have a way to store books.
-[x] It should have a way to create a book.
-[x] It should have a way to add a book.
-[x] It should have a way to remove a book.
-[x] It should have a way to mark the book as read.
+V1
+[x] It should have a function to store books.
+[x] It should have a function to create a book.
+[x] It should have a function to add a book.
+[x] It should have a function to remove a book.
+[x] It should have a function to mark the book as read.
