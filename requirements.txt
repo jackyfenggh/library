@@ -1,3 +1,9 @@
+V4
+[x] There should be a toggle read status button for each book.
+[x] The add book button should run addBook on click.
+[x] The remove book button should run removeBook on click.
+[x] The toggle read status button should run toggleBookReadStatus on click.
+
 V3
 [x] It should have a function to render HTML elements.
 [x] The render function should run on page load.

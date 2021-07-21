@@ -32,6 +32,11 @@ function displayBooks() {
     var book = document.createElement('p');
     book.innerText = `Author: ${myBooks[i].author}, Title: ${myBooks[i].title}, Pages: ${myBooks[i].pages}, Read: ${myBooks[i].readStatus}`;
     document.body.appendChild(book);
+
+    var toggleBookReadStatusButton = document.createElement('button');
+    toggleBookReadStatusButton.innerText = 'Toggle Read Status';
+    book.appendChild(toggleBookReadStatusButton);
+    toggleBookReadStatusButton.addEventListener('click', toggleBookReadStatus);
   };
 }
 
@@ -39,14 +44,12 @@ function renderPage() {
   var addBookButton = document.createElement('button');
   addBookButton.innerText = 'Add Book';
   document.body.appendChild(addBookButton);
+  addBookButton.addEventListener('click', addBook);
 
   var removeBookButton = document.createElement('button');
   removeBookButton.innerText = 'Remove Book';
   document.body.appendChild(removeBookButton);
-
-  var toggleBookReadStatusButton = document.createElement('button');
-  toggleBookReadStatusButton.innerText = 'Toggle Read Status';
-  document.body.appendChild(toggleBookReadStatusButton);
+  removeBookButton.addEventListener('click', removeBook);
 
   displayBooks();
 }
