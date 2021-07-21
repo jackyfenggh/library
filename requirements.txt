@@ -1,3 +1,10 @@
+V3
+[x] It should have a function to render HTML elements.
+[x] The render function should run on page load.
+[x] There should be a button to add a book.
+[x] There should be a button to remove a book.
+[x] There should be a button to toggle the read status of a book.
+
 V2
 [x] It should initialise the myBooks array with sample books.
 [x] It should have a function to display books.
@@ -8,4 +15,4 @@ V1
 [x] It should have a function to create a book.
 [x] It should have a function to add a book.
 [x] It should have a function to remove a book.
-[x] It should have a function to mark the book as read.
+[x] It should have a function to toggle the read status of a book.

@@ -19,8 +19,12 @@ function removeBook() {
   myBooks.pop();
 }
 
-function updateBookReadStatus(book) {
-  book.readStatus = true;
+function toggleBookReadStatus(book) {
+  if (book.readStatus) {
+    book.readStatus = false;
+  } else {
+    book.readStatus = true;
+  }
 }
 
 function displayBooks() {
@@ -30,3 +34,21 @@ function displayBooks() {
     document.body.appendChild(book);
   };
 }
+
+function renderPage() {
+  var addBookButton = document.createElement('button');
+  addBookButton.innerText = 'Add Book';
+  document.body.appendChild(addBookButton);
+
+  var removeBookButton = document.createElement('button');
+  removeBookButton.innerText = 'Remove Book';
+  document.body.appendChild(removeBookButton);
+
+  var toggleBookReadStatusButton = document.createElement('button');
+  toggleBookReadStatusButton.innerText = 'Toggle Read Status';
+  document.body.appendChild(toggleBookReadStatusButton);
+
+  displayBooks();
+}
+
+renderPage();
