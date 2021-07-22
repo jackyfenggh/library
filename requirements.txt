@@ -1,3 +1,6 @@
+V7
+[x] The remove buttons should only remove its respective book
+
 V6
 [x] It should have a list element to store each book.
 [x] It should have an unordered list element to store each book's list element.

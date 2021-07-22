@@ -1,6 +1,6 @@
 var myBooks = [
-  {author: 'test author1', title: 'test title1', pages: 'test pages1', readStatus: false, bookID: 'book1'}, 
-  {author: 'test author2', title: 'test title2', pages: 'test pages2', readStatus: false, bookID: 'book2'}
+  {author: 'test author1', title: 'test title1', pages: 'test pages1', readStatus: false, bookId: 'book-0'}, 
+  {author: 'test author2', title: 'test title2', pages: 'test pages2', readStatus: false, bookId: 'book-1'}
 ];
 
 function Book(author, title, pages, readStatus) {
@@ -15,24 +15,20 @@ function addBook() {
   myBooks.push(book);
 }
 
-function removeBook() {
-  myBooks.pop();
+function removeBook(event) {
+  var position = event.target.id.split('-')[1];
+  myBooks.splice(position, 1);
+  displayBooks();
 }
 
 function toggleBookReadStatus(event) {
-  for (var i = 0; i < myBooks.length; i++) {
-    if (event.target.id === myBooks[i].bookID) {
-      if (myBooks[i].readStatus) {
-        myBooks[i].readStatus = false;
-        displayBooks();
-        return;
-      } else {
-        myBooks[i].readStatus = true;
-        displayBooks();
-        return;
-      }
-    }
+  var position = event.target.id.split('-')[1];
+  if (myBooks[position].readStatus) {
+    myBooks[position].readStatus = false;
+  } else {
+    myBooks[position].readStatus = true;
   }
+  displayBooks();
 }
 
 function displayBooks() {
@@ -49,12 +45,13 @@ function displayBooks() {
 
     var toggleBookReadStatusButton = document.createElement('button');
     toggleBookReadStatusButton.innerText = 'Toggle Read Status';
-    toggleBookReadStatusButton.id = myBooks[i].bookID;
+    toggleBookReadStatusButton.id = myBooks[i].bookId;
     book.appendChild(toggleBookReadStatusButton);
     toggleBookReadStatusButton.addEventListener('click', toggleBookReadStatus);
 
     var removeBookButton = document.createElement('button');
     removeBookButton.innerText = 'Remove Book';
+    removeBookButton.id = myBooks[i].bookId;
     book.appendChild(removeBookButton);
     removeBookButton.addEventListener('click', removeBook);
   };
