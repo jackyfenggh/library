@@ -11,8 +11,14 @@ function Book(author, title, pages, readStatus) {
 }
 
 function addBook() {
-  var book = new Book('test author', 'test title', 'test pages', false);
+  var author = document.getElementById('author').value;
+  var title = document.getElementById('title').value;
+  var pages = document.getElementById('pages').value;
+  var readStatus = document.getElementById('read-status').checked;
+
+  var book = new Book(author, title, pages, readStatus);
   myBooks.push(book);
+  displayBooks();
 }
 
 function removeBook(event) {
@@ -32,8 +38,13 @@ function toggleBookReadStatus(event) {
 }
 
 function displayBooks() {
-  var addBookButton = document.getElementById('add-book-button');
-  addBookButton.addEventListener('click', addBook);
+  // var addBookButton = document.getElementById('add-book-button');
+  // addBookButton.addEventListener('click', function() {
+  //   // code or function to pop up form
+  // });
+
+  var addBookFormSubmitButton = document.getElementById('add-book-form-submit-button');
+  addBookFormSubmitButton.addEventListener('click', addBook);
 
   var booksUl = document.getElementById('books-ul');
   booksUl.innerText = '';
@@ -55,6 +66,10 @@ function displayBooks() {
     book.appendChild(removeBookButton);
     removeBookButton.addEventListener('click', removeBook);
   };
+}
+
+function activateModalForm() {
+
 }
 
 displayBooks();
