@@ -22,13 +22,13 @@ function addBook() {
 }
 
 function removeBook(event) {
-  var position = event.target.id.split('-')[1];
+  var position = event.target.id;
   myBooks.splice(position, 1);
   displayBooks();
 }
 
 function toggleBookReadStatus(event) {
-  var position = event.target.id.split('-')[1];
+  var position = event.target.id;
   if (myBooks[position].readStatus) {
     myBooks[position].readStatus = false;
   } else {
@@ -56,13 +56,13 @@ function displayBooks() {
 
     var toggleBookReadStatusButton = document.createElement('button');
     toggleBookReadStatusButton.innerText = 'Toggle Read Status';
-    toggleBookReadStatusButton.id = myBooks[i].bookId;
+    toggleBookReadStatusButton.id = i;
     book.appendChild(toggleBookReadStatusButton);
     toggleBookReadStatusButton.addEventListener('click', toggleBookReadStatus);
 
     var removeBookButton = document.createElement('button');
     removeBookButton.innerText = 'Remove Book';
-    removeBookButton.id = myBooks[i].bookId;
+    removeBookButton.id = i;
     book.appendChild(removeBookButton);
     removeBookButton.addEventListener('click', removeBook);
   };
