@@ -1,7 +1,12 @@
+V11
+[x] The add book form input fields should have placeholder values.
+[x] The add book form submit button should not run addBook if required input fields are empty.
+[x] The add book form submit button should highlight fields that are empty.
+
 V10
-[] The add book form should be hidden on page load.
-[] The add book button should make the add book form visible on click.
-[] The add book form should have a way for the user to exit out of the add book form.
+[x] The add book form should be hidden on page load.
+[x] The add book button should make the add book form visible on click.
+[x] The add book form should have a way for the user to exit out of the add book form.
 
 V9
 [x] It should store myBooks and form input values in local storage.

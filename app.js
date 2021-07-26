@@ -7,11 +7,12 @@ var currentAuthor = document.getElementById('author');
 var currentTitle = document.getElementById('title');
 var currentPages = document.getElementById('pages');
 var currentReadStatus = document.getElementById('read-status');
+var addBookForm = document.getElementById('add-book-form');
 
-currentAuthor.onchange = populateStorage;
-currentTitle.onchange = populateStorage;
-currentPages.onchange = populateStorage;
-currentReadStatus.onchange = populateStorage;
+currentAuthor.onchange = formInputOnChange;
+currentTitle.onchange = formInputOnChange;
+currentPages.onchange = formInputOnChange;
+currentReadStatus.onchange = formInputOnChange;
 
 if (!localStorage.getItem('storedMyBooks')) {
   populateStorage();
@@ -35,6 +36,11 @@ function setDataFromLocalStorage() {
   currentReadStatus.value = localStorage.getItem('storedReadStatus');
 }
 
+function formInputOnChange() {
+  populateStorage();
+  this.style.borderColor = '';
+}
+
 function Book(author, title, pages, readStatus) {
   this.author = author;
   this.title = title;
@@ -42,16 +48,46 @@ function Book(author, title, pages, readStatus) {
   this.readStatus = readStatus;
 }
 
-function addBook() {
-  var book = new Book(currentAuthor.value, currentTitle.value, currentPages.value, currentReadStatus.checked);
-  myBooks.push(book);
-  populateStorage();
-  displayBooks();
+function validateInputFields() {
+  var errors;
+  
+  if (!currentAuthor.value) {
+    currentAuthor.style.borderColor = 'red';
+    errors = 'empty fields';
+  }
 
+  if (!currentTitle.value) {
+    currentTitle.style.borderColor = 'red';
+    errors = 'empty fields';
+  }
+
+  if (!currentPages.value) {
+    currentPages.style.borderColor = 'red';
+    errors = 'empty fields';
+  }
+
+  return errors;
+}
+
+function refreshFormState() {
+  addBookForm.style.visibility = 'hidden'
   currentAuthor.value = '';
   currentTitle.value = '';
   currentPages.value = '';
   currentReadStatus.checked = false;
+}
+
+function addBook() {
+  if (validateInputFields() === 'empty fields') {
+    return;
+  }
+
+  var book = new Book(currentAuthor.value, currentTitle.value, currentPages.value, currentReadStatus.checked);
+  myBooks.push(book);
+
+  refreshFormState();
+  populateStorage();
+  displayBooks();
 }
 
 function removeBook(event) {
@@ -73,13 +109,9 @@ function toggleBookReadStatus(event) {
 }
 
 function displayBooks() {
-  var addBookForm = document.getElementById('add-book-form');
+  
   var addBookButton = document.getElementById('add-book-button');
   addBookButton.addEventListener('click', function() {
-    currentAuthor.value = '';
-    currentTitle.value = '';
-    currentPages.value = '';
-    currentReadStatus.checked = false;
     addBookForm.style.visibility = 'visible';
   });
 
@@ -87,9 +119,7 @@ function displayBooks() {
   addBookFormSubmitButton.addEventListener('click', addBook);
 
   var addBookFormCancelButton = document.getElementById('add-book-form-cancel-button');
-  addBookFormCancelButton.addEventListener('click', function() {
-    addBookForm.style.visibility = 'hidden'
-  });
+  addBookFormCancelButton.addEventListener('click', refreshFormState);
 
   var booksUl = document.getElementById('books-ul');
   booksUl.innerText = '';
