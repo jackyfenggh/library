@@ -1,3 +1,8 @@
+V10
+[] The add book form should be hidden on page load.
+[] The add book button should make the add book form visible on click.
+[] The add book form should have a way for the user to exit out of the add book form.
+
 V9
 [x] It should store myBooks and form input values in local storage.
 [x] It should update local storage whenever one of the above are updated.

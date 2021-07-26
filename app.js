@@ -13,32 +13,26 @@ currentTitle.onchange = populateStorage;
 currentPages.onchange = populateStorage;
 currentReadStatus.onchange = populateStorage;
 
-if (!localStorage.getItem('myBooks')) {
+if (!localStorage.getItem('storedMyBooks')) {
   populateStorage();
 } else {
   setDataFromLocalStorage();
 }
 
 function populateStorage() {
-  localStorage.setItem('myBooks', JSON.stringify(myBooks));
-  localStorage.setItem('currentAuthor', currentAuthor.value);
-  localStorage.setItem('currentTitle', currentTitle.value);
-  localStorage.setItem('currentPages', currentPages.value);
-  localStorage.setItem('currentReadStatus', currentReadStatus.value);
+  localStorage.setItem('storedMyBooks', JSON.stringify(myBooks));
+  localStorage.setItem('storedAuthor', currentAuthor.value);
+  localStorage.setItem('storedTitle', currentTitle.value);
+  localStorage.setItem('storedPages', currentPages.value);
+  localStorage.setItem('storedReadStatus', currentReadStatus.value);
 }
 
 function setDataFromLocalStorage() {
-  var storedMyBooks = JSON.parse(localStorage.getItem('myBooks'));
-  var storedAuthor = localStorage.getItem('currentAuthor');
-  var storedTitle = localStorage.getItem('currentTitle');
-  var storedPages = localStorage.getItem('currentPages');
-  var storedReadStatus = localStorage.getItem('currentReadStatus');
-
-  myBooks = storedMyBooks;
-  currentAuthor.value = storedAuthor;
-  currentTitle.value = storedTitle;
-  currentPages.value = storedPages;
-  currentReadStatus.value = storedReadStatus
+  myBooks = JSON.parse(localStorage.getItem('storedMyBooks'));
+  currentAuthor.value = localStorage.getItem('storedAuthor');
+  currentTitle.value = localStorage.getItem('storedTitle');
+  currentPages.value = localStorage.getItem('storedPages');
+  currentReadStatus.value = localStorage.getItem('storedReadStatus');
 }
 
 function Book(author, title, pages, readStatus) {
@@ -79,13 +73,23 @@ function toggleBookReadStatus(event) {
 }
 
 function displayBooks() {
-  // var addBookButton = document.getElementById('add-book-button');
-  // addBookButton.addEventListener('click', function() {
-  //   // code or function to pop up form
-  // });
+  var addBookForm = document.getElementById('add-book-form');
+  var addBookButton = document.getElementById('add-book-button');
+  addBookButton.addEventListener('click', function() {
+    currentAuthor.value = '';
+    currentTitle.value = '';
+    currentPages.value = '';
+    currentReadStatus.checked = false;
+    addBookForm.style.visibility = 'visible';
+  });
 
   var addBookFormSubmitButton = document.getElementById('add-book-form-submit-button');
   addBookFormSubmitButton.addEventListener('click', addBook);
+
+  var addBookFormCancelButton = document.getElementById('add-book-form-cancel-button');
+  addBookFormCancelButton.addEventListener('click', function() {
+    addBookForm.style.visibility = 'hidden'
+  });
 
   var booksUl = document.getElementById('books-ul');
   booksUl.innerText = '';
