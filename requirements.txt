@@ -1,3 +1,8 @@
+V9
+[x] It should store myBooks and form input values in local storage.
+[x] It should update local storage whenever one of the above are updated.
+[x] It should clear the add book form each time a new book is added.
+
 V8
 [x] It should have a form for adding books.
 [x] The form should add a book if it is submitted with all required details.

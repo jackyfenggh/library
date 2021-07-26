@@ -36,4 +36,6 @@ Really, the purpose of these three requirements is to support this requirement:
 
 Where should the line be drawn? Is this what programmers mean when they say 'don't be in solution mode'? It almost seems like the latter requirement is the 'real requirement' and the prior three speak to the actual implementation of the requirement which maybe doesn't belong on the requirements doc?
 
-4. If I find that previous requirements are incorrect and I need to change code, is the requirements doc a requirements doc or a changelog? Or both? For example I just realised as I'm writing V6 that `displayBooks` and `renderPage` could be combined. Argh, definitely need to research this further. 
+4. If I find that previous requirements are incorrect and I need to change code, is the requirements doc a requirements doc or a changelog? Or both? For example I just realised as I'm writing V6 that `displayBooks` and `renderPage` could be combined. Argh, definitely need to research this further.
+
+5. 
