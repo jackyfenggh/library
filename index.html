@@ -8,21 +8,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="add-book-button">Add Book</button>
-  <ul id="books-ul">
-  </ul>
-  <form id="add-book-form">
-    <label for="author">Author*</label>
-    <input name="author" id="author" type="text" placeholder="J. R. R. Tolkein">
-    <label for="title">Title*</label>
-    <input name="title" id="title" type="text" placeholder="The Lord of the Rings">
-    <label for="pages">Pages*</label>
-    <input name="pages" id="pages" type="number" placeholder="1197">
-    <label for="read-status">Read?</label>
-    <input name="read-status" id="read-status" type="checkbox">
-    <button id="add-book-form-submit-button" onclick="return false">Add Book</button>
-    <button id="add-book-form-cancel-button" onclick="return false">Cancel</button>
-  </form>
+  <header>
+    <h2>My First Library</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut fringilla neque, ut hendrerit purus. Maecenas mi nisi, bibendum vitae interdum et, aliquam in risus. Nam at felis eu metus venenatis hendrerit at et nisi. Quisque vel aliquam libero. Proin tincidunt sem at ligula facilisis, nec aliquet orci luctus.</p>
+    <button id="add-book-button">Add Book</button>
+  </header>
+  <main>
+    <ul id="books-ul">
+    </ul>
+    
+    <form id="add-book-form">
+      <label for="author">Author*</label>
+      <input name="author" id="author" type="text" placeholder="J. R. R. Tolkein">
+      <label for="title">Title*</label>
+      <input name="title" id="title" type="text" placeholder="The Lord of the Rings">
+      <label for="pages">Pages*</label>
+      <input name="pages" id="pages" type="number" placeholder="1197">
+      <label for="read-status">Read?</label>
+      <input name="read-status" id="read-status" type="checkbox">
+      <button id="add-book-form-submit-button" onclick="return false">Add Book</button>
+      <button id="add-book-form-cancel-button" onclick="return false">Cancel</button>
+    </form>
+  </main>
 </body>
 </html>
 <script src="app.js"></script>

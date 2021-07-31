@@ -38,4 +38,4 @@ Where should the line be drawn? Is this what programmers mean when they say 'don
 
 4. If I find that previous requirements are incorrect and I need to change code, is the requirements doc a requirements doc or a changelog? Or both? For example I just realised as I'm writing V6 that `displayBooks` and `renderPage` could be combined. Argh, definitely need to research this further.
 
-5. 
+5. I've roughly sketched out how I want the page to look and used this to help plan what CSS elements I'll need and where they fit on the DOM. I'm happy with how the planning went- it's definitely made the CSS feel less daunting which is good. Time to start working on it!
